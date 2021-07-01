@@ -1,13 +1,13 @@
-import { GLOBAL } from "../defines";
+import { GLOBAL } from '../defines';
 
 const initialState = {
-  language: "en",
+  language: 'en',
   currency: {
-    locales: "us-US",
-    currency: "USD",
+    locales: 'us-US',
+    currency: 'USD',
   },
-  category: "clothing",
-  keyword: "",
+  category: 'clothing',
+  keyword: '',
 };
 
 const globalReducer = (state = initialState, action) => {
@@ -22,11 +22,11 @@ const globalReducer = (state = initialState, action) => {
         ...state,
         currency: {
           locales:
-            action.cur === "JPY"
-              ? "jp-JP"
-              : action.cur === "VND"
-              ? "vn-VN"
-              : "en-EN",
+            action.cur === 'JPY'
+              ? 'jp-JP'
+              : action.cur === 'VND'
+              ? 'vn-VN'
+              : 'en-EN',
           currency: action.cur,
         },
       };

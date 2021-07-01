@@ -1,43 +1,43 @@
-import { Select } from "antd";
-import Link from "next/link";
-import React from "react";
-
-// import {
-//   setGlobalLanguage,
-//   setGlobalCurrency,
-// } from "../../../redux/actions/globalActions";
-import Container from "../../other/Container";
+import { Select } from 'antd';
+import Link from 'next/link';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  setGlobalLanguage,
+  setGlobalCurrency,
+} from '../../../redux/actions/globalActions';
+import Container from '../../other/Container';
 
 const TopNav = ({ containerType }) => {
   const { Option } = Select;
-
-
-  // const onSelectLanguage = (value) => {
-  //   dispatch(setGlobalLanguage(value));
-  // };
-  // const onSelectCurrency = (value) => {
-  //   dispatch(setGlobalCurrency(value));
-  // };
+  const dispatch = useDispatch();
+  const globalState = useSelector((state) => state.globalReducer);
+  const onSelectLanguage = (value) => {
+    dispatch(setGlobalLanguage(value));
+  };
+  const onSelectCurrency = (value) => {
+    dispatch(setGlobalCurrency(value));
+  };
   return (
     <div className="top-nav">
       <Container type={containerType}>
         <div className="top-nav-wrapper">
           <div className="top-nav-selects">
             <Select
-              defaultValue="English"
+              defaultValue={globalState.language}
               style={{ width: 90 }}
               bordered={false}
-              // onChange={onSelectLanguage}
+              onChange={onSelectLanguage}
             >
-              <Option value="en">English</Option>
-              <Option value="jp">Japanese</Option>
-              <Option value="vi">Vietnamese</Option>
+              <Option value="EN">English</Option>
+              <Option value="JP">Japanese</Option>
+              <Option value="VN">Vietnamese</Option>
             </Select>
             <Select
-              defaultValue="USD - Dollar"
+              defaultValue={globalState.currency.currency}
               style={{ width: 120 }}
               bordered={false}
-              // onChange={onSelectCurrency}
+              onChange={onSelectCurrency}
             >
               <Option value="USD">USD - Dollar</Option>
               <Option value="JPY">JPY - Yen</Option>
@@ -46,7 +46,7 @@ const TopNav = ({ containerType }) => {
           </div>
           <div className="top-nav-links">
             <div className="top-nav-links__item">
-              <Link href={process.env.PUBLIC_URL + "/#"}>
+              <Link href={process.env.PUBLIC_URL + '/#'}>
                 <a>
                   <i className="icon_question_alt2" />
                   Help
@@ -54,7 +54,7 @@ const TopNav = ({ containerType }) => {
               </Link>
             </div>
             <div className="top-nav-links__item">
-              <Link href={process.env.PUBLIC_URL + "/#"}>
+              <Link href={process.env.PUBLIC_URL + '/#'}>
                 <a>
                   <i className="icon_gift" /> Offer
                 </a>
@@ -65,6 +65,6 @@ const TopNav = ({ containerType }) => {
       </Container>
     </div>
   );
-}
+};
 
 export default React.memo(TopNav);

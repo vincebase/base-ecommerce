@@ -1,11 +1,11 @@
-import React from "react";
-import Link from "next/link";
-import { useSelector, useDispatch } from "react-redux";
-import classNames from "classnames";
-import { Select } from "antd";
+import React from 'react';
+import Link from 'next/link';
+import { useSelector, useDispatch } from 'react-redux';
+import classNames from 'classnames';
+import { Select } from 'antd';
 
-import { SHOP } from "../../common/defines";
-import { setSubCategory } from "../../redux/actions/shopActions";
+import { SHOP } from '../../common/defines';
+import { setSubCategory } from '../../redux/actions/shopActions';
 
 function ShopSidebar({ categories }) {
   const { Option } = Select;
@@ -17,8 +17,8 @@ function ShopSidebar({ categories }) {
     (item) => item.name.toLowerCase() === globalState.category.toLowerCase()
   );
   const onChooseSubCategory = (data) => {
-    if (!data || data === "all") {
-      return dispatch(setSubCategory(""));
+    if (!data || data === 'all') {
+      return dispatch(setSubCategory(''));
     }
     return dispatch(setSubCategory(data));
   };
@@ -32,14 +32,14 @@ function ShopSidebar({ categories }) {
         <ul>
           <li
             className={classNames({
-              active: shopState.subCategory === "",
+              active: shopState.subCategory === '',
             })}
           >
             <Link href="">
               <a
                 onClick={(e) => {
                   e.preventDefault();
-                  onChooseSubCategory("all");
+                  onChooseSubCategory('all');
                 }}
               >
                 <i className="icon_document_alt" />
@@ -73,9 +73,9 @@ function ShopSidebar({ categories }) {
       <div className="shop-sidebar__subcategory-mobile">
         <Select
           defaultValue="all"
-          style={{ width: "100%" }}
+          style={{ width: '100%' }}
           onChange={handleChange}
-          value={shopState.subCategory === "" ? "all" : shopState.subCategory}
+          value={shopState.subCategory === '' ? 'all' : shopState.subCategory}
         >
           <Option value="all">
             <i className="icon_document_alt" />
@@ -84,7 +84,7 @@ function ShopSidebar({ categories }) {
           {subCategory &&
             subCategory.sub.map((item, index) => (
               <Option key={index} value={item.name}>
-                {" "}
+                {' '}
                 <i className={item.iconClass} />
                 {item.name}
               </Option>

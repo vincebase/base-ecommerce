@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import { Rate, Button, Tooltip, Skeleton, message, Modal, Spin } from "antd";
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import classNames from 'classnames';
+import { Rate, Button, Tooltip, Skeleton, message, Modal, Spin } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { formatCurrency } from "../../common/utils";
+import { formatCurrency } from '../../common/utils';
 import {
   checkProductInWishlist,
   checkAvaiableQuantityToAdd,
-} from "../../common/shopUtils";
+} from '../../common/shopUtils';
 // import { addToCart } from "../../redux/actions/cartActions";
 // import {
 //   addToWishlist,
 //   removeFromWishlist,
 // } from "../../redux/actions/wishlistActions";
-import ShopQuickView from "../shop/ShopQuickView";
+import ShopQuickView from '../shop/ShopQuickView';
 
 function Product({ data, productStyle }) {
   const dispatch = useDispatch();
@@ -43,28 +45,28 @@ function Product({ data, productStyle }) {
     if (avaiableQuantity === 0) {
       return;
     }
-    dispatch(addToCart(data, 1, "none", "none"));
-    message.success("Product added to cart successfully");
+    dispatch(addToCart(data, 1, 'none', 'none'));
+    message.success('Product added to cart successfully');
   };
   const onAddToWishlist = (data) => {
     if (productInWishlist) {
       dispatch(removeFromWishlist(data.id));
-      return message.error("Product removed from wishlist");
+      return message.error('Product removed from wishlist');
     } else {
       dispatch(addToWishlist(data));
-      return message.success("Product added to wishlist successfully");
+      return message.success('Product added to wishlist successfully');
     }
   };
   const renderStyleClass = () => {
-    const avaialeStyles = ["one", "two", "three"];
+    const avaialeStyles = ['one', 'two', 'three'];
     if (avaialeStyles.includes(productStyle)) {
-      if (!productStyle || productStyle === "one") {
-        return "-style-one";
+      if (!productStyle || productStyle === 'one') {
+        return '-style-one';
       } else {
-        return "-style-" + productStyle;
+        return '-style-' + productStyle;
       }
     } else {
-      return "-style-one";
+      return '-style-one';
     }
   };
   const showModal = () => {
@@ -102,7 +104,7 @@ function Product({ data, productStyle }) {
             </div>
           )}
           {renderProductType()}
-          {productStyle === "two" ? (
+          {productStyle === 'two' ? (
             <div className="product-button-group">
               <Tooltip title="Quick view">
                 <Button onClick={showModal} type="text">
@@ -111,7 +113,7 @@ function Product({ data, productStyle }) {
               </Tooltip>
               <Tooltip
                 title={
-                  productInWishlist ? "Remove from wishlist" : "Add to wishlist"
+                  productInWishlist ? 'Remove from wishlist' : 'Add to wishlist'
                 }
               >
                 <Button
@@ -135,12 +137,12 @@ function Product({ data, productStyle }) {
               </Tooltip>
             </div>
           ) : null}
-          {!productStyle || productStyle === "one" ? (
+          {!productStyle || productStyle === 'one' ? (
             <>
               <Tooltip
                 placement="left"
                 title={
-                  productInWishlist ? "Remove from wishlist" : "Add to wishlist"
+                  productInWishlist ? 'Remove from wishlist' : 'Add to wishlist'
                 }
               >
                 <Button
@@ -187,7 +189,7 @@ function Product({ data, productStyle }) {
                 <span>{formatCurrency(data.price, locales, currency)}</span>
               )}
             </div>
-            {!productStyle || productStyle === "one" ? (
+            {!productStyle || productStyle === 'one' ? (
               <Tooltip title="Add to cart">
                 <Button
                   disabled={avaiableQuantity === 0}
@@ -201,7 +203,7 @@ function Product({ data, productStyle }) {
               </Tooltip>
             ) : null}
           </div>
-          {productStyle === "three" ? (
+          {productStyle === 'three' ? (
             <div className="product-button-group">
               <div className="product-button-group__wrapper">
                 <Tooltip placement="top" title="Quick view">
@@ -213,8 +215,8 @@ function Product({ data, productStyle }) {
                   placement="top"
                   title={
                     productInWishlist
-                      ? "Remove from wishlist"
-                      : "Add to wishlist"
+                      ? 'Remove from wishlist'
+                      : 'Add to wishlist'
                   }
                 >
                   <Button
