@@ -1,22 +1,33 @@
+import { Select } from "antd";
 import Link from "next/link";
 import React from "react";
+
+// import {
+//   setGlobalLanguage,
+//   setGlobalCurrency,
+// } from "../../../redux/actions/globalActions";
 import Container from "../../other/Container";
-import {Select} from "antd";
 
-
-const TopNav=({ containerType })=> {
+const TopNav = ({ containerType }) => {
   const { Option } = Select;
 
 
+  // const onSelectLanguage = (value) => {
+  //   dispatch(setGlobalLanguage(value));
+  // };
+  // const onSelectCurrency = (value) => {
+  //   dispatch(setGlobalCurrency(value));
+  // };
   return (
     <div className="top-nav">
       <Container type={containerType}>
         <div className="top-nav-wrapper">
           <div className="top-nav-selects">
-          <Select
+            <Select
               defaultValue="English"
               style={{ width: 90 }}
               bordered={false}
+              // onChange={onSelectLanguage}
             >
               <Option value="en">English</Option>
               <Option value="jp">Japanese</Option>
@@ -26,12 +37,14 @@ const TopNav=({ containerType })=> {
               defaultValue="USD - Dollar"
               style={{ width: 120 }}
               bordered={false}
-      
+              // onChange={onSelectCurrency}
             >
               <Option value="USD">USD - Dollar</Option>
               <Option value="JPY">JPY - Yen</Option>
               <Option value="VND">VND - Vietnam dong</Option>
             </Select>
+          </div>
+          <div className="top-nav-links">
             <div className="top-nav-links__item">
               <Link href={process.env.PUBLIC_URL + "/#"}>
                 <a>
@@ -40,7 +53,6 @@ const TopNav=({ containerType })=> {
                 </a>
               </Link>
             </div>
-          
             <div className="top-nav-links__item">
               <Link href={process.env.PUBLIC_URL + "/#"}>
                 <a>
@@ -49,10 +61,10 @@ const TopNav=({ containerType })=> {
               </Link>
             </div>
           </div>
-          </div>
+        </div>
       </Container>
     </div>
   );
 }
 
-export default TopNav
+export default React.memo(TopNav);

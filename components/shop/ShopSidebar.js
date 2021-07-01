@@ -9,22 +9,22 @@ import { SHOP } from "../../common/defines";
 
 function ShopSidebar({ categories }) {
   const { Option } = Select;
-  const dispatch = useDispatch();
-  const globalState = useSelector((state) => state.globalReducer);
-  const shopState = useSelector((state) => state.shopReducer);
+  // const dispatch = useDispatch();
+  // const globalState = useSelector((state) => state.globalReducer);
+  // const shopState = useSelector((state) => state.shopReducer);
 
-  const subCategory = SHOP.category.find(
-    (item) => item.name.toLowerCase() === globalState.category.toLowerCase()
-  );
-  const onChooseSubCategory = (data) => {
-    if (!data || data === "all") {
-      return dispatch(setSubCategory(""));
-    }
-    return dispatch(setSubCategory(data));
-  };
-  const handleChange = (value) => {
-    onChooseSubCategory(value);
-  };
+  // const subCategory = SHOP.category.find(
+  //   (item) => item.name.toLowerCase() === globalState.category.toLowerCase()
+  // );
+  // const onChooseSubCategory = (data) => {
+  //   if (!data || data === "all") {
+  //     return dispatch(setSubCategory(""));
+  //   }
+  //   return dispatch(setSubCategory(data));
+  // };
+  // const handleChange = (value) => {
+  //   onChooseSubCategory(value);
+  // };
   return (
     <div className="shop-sidebar">
       <h5>{globalState.category}</h5>

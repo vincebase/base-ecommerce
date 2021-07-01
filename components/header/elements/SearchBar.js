@@ -48,10 +48,10 @@ const SearchBar = ({ fillData, placeholder }) => {
         <div className="menu-search__form">
           <Select
             className="menu-search__form-select"
-            defaultValue=""
+            defaultValue="Category"
             style={{ width: 150 }}
-            onChange={onSelectCateory}
-            value="Category"
+            // onChange={onSelectCateory}
+          
           >
             {SHOP.category.map((item, index) => (
               <Option key={index} value={item.name}>

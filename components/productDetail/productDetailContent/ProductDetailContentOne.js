@@ -17,14 +17,14 @@ function ProductDetailContentOne({
   quantityControllerNoRound,
   showCountdown,
 }) {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
   const [currentColor, setCurrentColor] = useState("none");
   const [currentSize, setCurrentSize] = useState("none");
-  const globalState = useSelector((state) => state.globalReducer);
+  // const globalState = useSelector((state) => state.globalReducer);
   const cartState = useSelector((state) => state.cartReducer);
   const avaiableQuantity = checkAvaiableQuantityToAdd(cartState, data);
-  const { currency, locales } = globalState.currency;
+  // const { currency, locales } = globalState.currency;
   const onAddProductToCart = (data) => {
     if (avaiableQuantity === 0) {
       return;

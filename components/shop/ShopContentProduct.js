@@ -1,7 +1,7 @@
 import { Row, Col, Empty, Pagination } from "antd";
 import React from "react";
 // import { useSelector } from "react-redux";
-import classNames from "classnames";
+// import classNames from "classnames";
 
 import Product from "../product/Product";
 import {
@@ -17,8 +17,8 @@ function ShopContentProduct({
   productPerPage,
   productStyle,
 }) {
-  const shopState = useSelector((state) => state.shopReducer);
-  const globalState = useSelector((state) => state.globalReducer);
+  // const shopState = useSelector((state) => state.shopReducer);
+  // const globalState = useSelector((state) => state.globalReducer);
   const [currentData, setCurrentData] = useState();
   const [page, setPage] = useState(1);
   const [offset, setOffset] = useState(0);

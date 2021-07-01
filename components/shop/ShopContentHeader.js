@@ -7,10 +7,10 @@ import React from "react";
 function ShopContentHeader({ data, productPerPage }) {
   const { Option } = Select;
   // const dispatch = useDispatch();
-  const shopState = useSelector((state) => state.shopReducer);
-  const handleChange = (value) => {
-    dispatch(setSort(value));
-  };
+  // const shopState = useSelector((state) => state.shopReducer);
+  // const handleChange = (value) => {
+  //   dispatch(setSort(value));
+  // };
   return (
     <div className="shop-content__header">
       <div className="shop-content__header-showing">
@@ -24,7 +24,7 @@ function ShopContentHeader({ data, productPerPage }) {
           className="shop-content__header-filter__select"
           defaultValue={shopState.sort}
           style={{ width: 250 / 16 + "em" }}
-          onChange={handleChange}
+          // onChange={handleChange}
         >
           <Option value="default">Default</Option>
           <Option value="lowHigh">Price: Low to High</Option>

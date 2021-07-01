@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import classNames from "classnames";
+
 
 function ZoomImage({ src, alt, disableOnMobile }) {
   const [backgroundPos, setBackgroundPos] = useState("0% 0%");

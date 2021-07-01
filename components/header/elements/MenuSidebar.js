@@ -5,14 +5,13 @@ import Link from "next/link";
 const MenuSidebar = () => {
   const { SubMenu } = Menu;
   const { Option } = Select;
-  const dispatch = useDispatch();
-  const globalState = useSelector((state) => state.globalReducer);
-  const onSelectLanguage = (value) => {
-    dispatch(setGlobalLanguage(value));
-  };
-  const onSelectCurrency = (value) => {
-    dispatch(setGlobalCurrency(value));
-  };
+
+  // const onSelectLanguage = (value) => {
+  //   dispatch(setGlobalLanguage(value));
+  // };
+  // const onSelectCurrency = (value) => {
+  //   dispatch(setGlobalCurrency(value));
+  // };
   return (
     <div className="menu-sidebar">
       <Menu mode="inline">
@@ -95,20 +94,20 @@ const MenuSidebar = () => {
       </Menu>
       <div className="menu-sidebar-selects">
         <Select
-          defaultValue={globalState.language}
+          // defaultValue={globalState.language}
           style={{ width: 120 }}
           bordered={false}
-          onChange={onSelectLanguage}
+          // onChange={onSelectLanguage}
         >
           <Option value="en">English</Option>
           <Option value="jp">Japanese</Option>
           <Option value="vi">Vietnamese</Option>
         </Select>
         <Select
-          defaultValue={globalState.currency.currency}
+          // defaultValue={globalState.currency.currency}
           style={{ width: 150 }}
           bordered={false}
-          onChange={onSelectCurrency}
+          // onChange={onSelectCurrency}
         >
           <Option value="USD">USD - Dollar</Option>
           <Option value="JPY">JPY - Yen</Option>

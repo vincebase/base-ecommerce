@@ -8,11 +8,11 @@ import QuantitySelector from "../controls/QuantitySelector";
 
 
 function CartSidebarItem({ data }) {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [visible, setVisible] = useState(false);
   const [quantity, setQuantity] = useState(data.cartQuantity);
-  const globalState = useSelector((state) => state.globalReducer);
-  const { currency, locales } = globalState.currency;
+  // const globalState = useSelector((state) => state.globalReducer);
+  // const { currency, locales } = globalState.currency;
   const onRemoveProductFromCart = (e) => {
     e.preventDefault();
     showModal();

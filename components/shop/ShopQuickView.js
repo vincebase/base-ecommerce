@@ -47,7 +47,7 @@ function ShopQuickView({ data, setModalVisible }) {
         <Col className="gutter-row" span={24} sm={24} md={10}>
           <div className="shop-qv__slide">
             <div className="shop-qv__slide-big">
-              <Slider
+              {/* <Slider
                 asNavFor={nav2}
                 ref={(c) => setNav1(c)}
                 {...slider1Settings}
@@ -58,10 +58,10 @@ function ShopQuickView({ data, setModalVisible }) {
                       <img src={img} alt="Product image" />
                     </div>
                   ))}
-              </Slider>
+              </Slider> */}
             </div>
             <div className="shop-qv__slide-small">
-              <Slider
+              {/* <Slider
                 asNavFor={nav1}
                 ref={(c) => setNav2(c)}
                 {...slider2Settings}
@@ -72,7 +72,7 @@ function ShopQuickView({ data, setModalVisible }) {
                       <img src={img} alt="Product image" />
                     </div>
                   ))}
-              </Slider>
+              </Slider> */}
             </div>
           </div>
         </Col>

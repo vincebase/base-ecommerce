@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Rate, Button, Tooltip, Skeleton, message, Modal, Spin } from "antd";
 
-import classNames from "classnames";
-
 import { formatCurrency } from "../../common/utils";
 import {
   checkProductInWishlist,
