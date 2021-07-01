@@ -1,12 +1,12 @@
 import { GLOBAL } from '../defines';
 
 const initialState = {
-  language: 'en',
+  language: 'Englisg',
   currency: {
     locales: 'us-US',
     currency: 'USD',
   },
-  category: 'clothing',
+  category: 'Clothing',
   keyword: '',
 };
 
