@@ -2,17 +2,24 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Button, Drawer } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
-
+import {useSelector, useDispatch} from 'react-redux';
 import productsData from "../../../data/product.json";
 import CartSidebar from "../../cart/CartSidebar";
+import WishlistSidebar from "../../wishlist/WishlistSidebar";
 import MenuSidebar from "./MenuSidebar";
 import SearchBar from "./SearchBar";
 import Container from "../../other/Container";
+import { getTotalProductInCart } from "../../../common/shopUtils";
+
+
 
 const Menu = ({containerType}) => {
+  const cartState = useSelector((state) => state.cartReducer);
+  const wishlistState = useSelector((state) => state.wishlistReducer);
   const [cartSidebarOpen, setCartSidebarOpen] = useState(false);
   const [menuSidebarOpen, setMenuSidebarOpen] = useState(false);
-  const [wishlistSidebarOpen, setWishlistSidebarOpen] = useState(false);
+  const [wishlistSidebarOpen, setWishlistSidebarOpen] = useState(false); 
+ 
   return (
     <>
       <div className="menu">
@@ -50,7 +57,7 @@ const Menu = ({containerType}) => {
                   <a>Join now</a>
                 </Link>
               </Button>
-              {/* <div
+              <div
                 className="menu-function-item"
                 onClick={() => setWishlistSidebarOpen(true)}
               >
@@ -60,9 +67,9 @@ const Menu = ({containerType}) => {
                     "/assets/images/header/menu-wishlist.png"
                   }
                   alt=""
-                /> */}
-                {/* <span>{wishlistState.length}</span> */}
-              {/* </div> */}
+                />
+                <span>{wishlistState.length}</span>
+              </div>
               <div
                 className="menu-function-item"
                 onClick={() => setCartSidebarOpen(true)}
@@ -74,7 +81,7 @@ const Menu = ({containerType}) => {
                   }
                   alt=""
                 />
-                {/* <span>{getTotalProductInCart(cartState)}</span> */}
+                <span>{getTotalProductInCart(cartState)}</span>
               </div>
             </div>
           </div>
@@ -87,9 +94,9 @@ const Menu = ({containerType}) => {
       </div>
       <Drawer
         placement="right"
-        // title={`Wishlist (${wishlistState.length})`}
+        title={`Wishlist (${wishlistState.length})`}
         closable={true}
-        // onClose={() => setWishlistSidebarOpen(false)}
+        onClose={() => setWishlistSidebarOpen(false)}
         closeIcon={
           <>
             <p>Close</p> <CloseOutlined />
@@ -99,11 +106,11 @@ const Menu = ({containerType}) => {
         width={445}
         className="menu-side"
       >
-        {/* <WishlistSidebar /> */}
+        <WishlistSidebar />
       </Drawer>
       <Drawer
         placement="right"
-        // title={`Shopping cart (${getTotalProductInCart(cartState)})`}
+        title={`Shopping cart (${getTotalProductInCart(cartState)})`}
         closable={true}
         onClose={() => setCartSidebarOpen(false)}
         closeIcon={
@@ -115,7 +122,7 @@ const Menu = ({containerType}) => {
         width={445}
         className="menu-side"
       >
-        {/* <CartSidebar /> */}
+        <CartSidebar />
       </Drawer>
       <Drawer
         placement="right"
@@ -137,6 +144,4 @@ const Menu = ({containerType}) => {
   );
 }
 
-export default Menu;
-
-
+export default React.memo(Menu);

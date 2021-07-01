@@ -9,11 +9,11 @@ import {
   checkProductInWishlist,
   checkAvaiableQuantityToAdd,
 } from '../../common/shopUtils';
-// import { addToCart } from "../../redux/actions/cartActions";
-// import {
-//   addToWishlist,
-//   removeFromWishlist,
-// } from "../../redux/actions/wishlistActions";
+import { addToCart } from "../../redux/actions/cartActions";
+import {
+  addToWishlist,
+  removeFromWishlist,
+} from "../../redux/actions/wishlistActions";
 import ShopQuickView from '../shop/ShopQuickView';
 
 function Product({ data, productStyle }) {

@@ -1,18 +1,23 @@
-import React, { useState } from "react";
-import Link from "next/link";
-import { Modal, message } from "antd";
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { Modal, message } from 'antd';
+import { useSelector, useDispatch } from 'react-redux';
 
 
-import { formatCurrency } from "../../common/utils";
-import QuantitySelector from "../controls/QuantitySelector";
-
+import { formatCurrency } from '../../common/utils';
+import QuantitySelector from '../controls/QuantitySelector';
+import {
+  removeFromCart,
+  decreaseQuantityCart,
+  increaseQuantityCart,
+} from '../../redux/actions/cartActions';
 
 function CartSidebarItem({ data }) {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [visible, setVisible] = useState(false);
   const [quantity, setQuantity] = useState(data.cartQuantity);
-  // const globalState = useSelector((state) => state.globalReducer);
-  // const { currency, locales } = globalState.currency;
+  const globalState = useSelector((state) => state.globalReducer);
+  const { currency, locales } = globalState.currency;
   const onRemoveProductFromCart = (e) => {
     e.preventDefault();
     showModal();
@@ -24,7 +29,7 @@ function CartSidebarItem({ data }) {
   const handleOk = (e) => {
     dispatch(removeFromCart(data.cartId));
     setVisible(false);
-    return message.error("Product removed from cart");
+    return message.error('Product removed from cart');
   };
 
   const handleCancel = (e) => {

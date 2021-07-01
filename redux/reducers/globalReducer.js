@@ -1,7 +1,7 @@
 import { GLOBAL } from '../defines';
 
 const initialState = {
-  language: 'Englisg',
+  language: 'English',
   currency: {
     locales: 'us-US',
     currency: 'USD',
