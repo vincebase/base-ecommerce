@@ -1,10 +1,10 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
 // import { useSelector, useDispatch } from "react-redux";
-import classNames from "classnames";
-import { Select } from "antd";
+import classNames from 'classnames';
+import { Select } from 'antd';
 
-import { SHOP } from "../../common/defines";
+import { SHOP } from '../../common/defines';
 // import { setSubCategory } from "../../redux/actions/shopActions";
 
 function ShopSidebar({ categories }) {
@@ -27,19 +27,15 @@ function ShopSidebar({ categories }) {
   // };
   return (
     <div className="shop-sidebar">
-      <h5>{globalState.category}</h5>
+      <h5>Category</h5>
       <div className="shop-sidebar__subcategory">
         <ul>
-          <li
-            className={classNames({
-              active: shopState.subCategory === "",
-            })}
-          >
+          <li>
             <Link href="">
               <a
                 onClick={(e) => {
                   e.preventDefault();
-                  onChooseSubCategory("all");
+                  onChooseSubCategory('all');
                 }}
               >
                 <i className="icon_document_alt" />
@@ -47,35 +43,34 @@ function ShopSidebar({ categories }) {
               </a>
             </Link>
           </li>
-          {subCategory &&
-            subCategory.sub.slice(0, 7).map((item, index) => (
-              <li
-                key={index}
-                className={classNames({
-                  active: shopState.subCategory === item.name,
-                })}
+          {/* {subCategory &&
+            subCategory.sub.slice(0, 7).map((item, index) => ( */}
+          <li
+          // key={index}
+          // className={classNames({
+          //   active: shopState.subCategory === item.name,
+          // })}
+          >
+            <Link href="#">
+              <a
+                onClick={(e) => {
+                  e.preventDefault();
+                  onChooseSubCategory(item.name);
+                }}
               >
-                <Link href="#">
-                  <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                      onChooseSubCategory(item.name);
-                    }}
-                  >
-                    <i className={item.iconClass} />
-                    {item.name}
-                  </a>
-                </Link>
-              </li>
-            ))}
+                <i />
+                {/* {item.name} */}
+              </a>
+            </Link>
+          </li>
         </ul>
       </div>
       <div className="shop-sidebar__subcategory-mobile">
-        <Select
+        {/* <Select
           defaultValue="all"
           style={{ width: "100%" }}
-          onChange={handleChange}
-          value={shopState.subCategory === "" ? "all" : shopState.subCategory}
+          // onChange={handleChange}
+          // value={shopState.subCategory === "" ? "all" : shopState.subCategory}
         >
           <Option value="all">
             <i className="icon_document_alt" />
@@ -89,7 +84,7 @@ function ShopSidebar({ categories }) {
                 {item.name}
               </Option>
             ))}
-        </Select>
+        </Select> */}
       </div>
     </div>
   );

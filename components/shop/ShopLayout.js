@@ -1,10 +1,10 @@
-import React from "react";
-import { Row, Col } from "antd";
+import React from 'react';
+import { Row, Col } from 'antd';
 
-import ShopSidebar from "./ShopSidebar";
-import ShopContent from "./ShopContent";
-import ShopQuickView from "./ShopQuickView";
-import Container from "../other/Container";
+import ShopSidebar from './ShopSidebar';
+import ShopContent from './ShopContent';
+import ShopQuickView from './ShopQuickView';
+import Container from '../other/Container';
 
 function ShopLayout({
   shopSidebarResponsive,
