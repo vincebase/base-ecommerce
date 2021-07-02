@@ -7,7 +7,7 @@ import CartSidebarItem from './CartSidebarItem';
 import { calculateTotalPrice } from '../../common/shopUtils';
 import { formatCurrency } from '../../common/utils';
 
-function CartSidebar() {
+const CartSidebar = () => {
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state.cartReducer);
   const globalState = useSelector((state) => state.globalReducer);
@@ -40,4 +40,4 @@ function CartSidebar() {
   );
 }
 
-export default React.memo(CartSidebar);
+export default CartSidebar;

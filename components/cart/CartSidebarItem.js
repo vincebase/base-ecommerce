@@ -12,7 +12,7 @@ import {
   increaseQuantityCart,
 } from '../../redux/actions/cartActions';
 
-function CartSidebarItem({ data }) {
+const CartSidebarItem = ({ data }) => {
   const dispatch = useDispatch();
   const [visible, setVisible] = useState(false);
   const [quantity, setQuantity] = useState(data.cartQuantity);
@@ -88,4 +88,4 @@ function CartSidebarItem({ data }) {
   );
 }
 
-export default React.memo(CartSidebarItem);
+export default CartSidebarItem;

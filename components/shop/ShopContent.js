@@ -23,4 +23,4 @@ function ShopContent({
   );
 }
 
-export default React.memo(ShopContent);
+export default ShopContent;

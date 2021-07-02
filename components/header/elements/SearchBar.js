@@ -12,7 +12,7 @@ import {
 import { setSubCategory } from "../../../redux/actions/shopActions";
 import useDebounce from "../../../common/useDebound";
 
-function SearchBarMobile({ fillData, placeholder }) {
+const SearchBarMobile = ({ fillData, placeholder }) => {
   const { Option } = Select;
   const router = useRouter();
   const dispatch = useDispatch();
@@ -94,4 +94,4 @@ function SearchBarMobile({ fillData, placeholder }) {
   );
 }
 
-export default React.memo(SearchBarMobile);
+export default SearchBarMobile;

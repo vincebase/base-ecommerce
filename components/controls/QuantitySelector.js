@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { Button } from "antd";
 import classNames from "classnames";
 
-function QuantitySelector({
+const QuantitySelector = ({
   min,
   max,
   defaultValue,
@@ -12,7 +12,7 @@ function QuantitySelector({
   className,
   onDecrease,
   onIncrease,
-}) {
+}) => {
   const [value, setValue] = useState(1);
   useEffect(() => {
     onChange && onChange(value);

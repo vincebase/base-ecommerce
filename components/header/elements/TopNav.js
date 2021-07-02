@@ -67,4 +67,4 @@ const TopNav = ({ containerType }) => {
   );
 };
 
-export default React.memo(TopNav);
+export default TopNav;

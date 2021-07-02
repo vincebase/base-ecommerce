@@ -6,12 +6,12 @@ const MenuSidebar = () => {
   const { SubMenu } = Menu;
   const { Option } = Select;
 
-  // const onSelectLanguage = (value) => {
-  //   dispatch(setGlobalLanguage(value));
-  // };
-  // const onSelectCurrency = (value) => {
-  //   dispatch(setGlobalCurrency(value));
-  // };
+  const onSelectLanguage = (value) => {
+    dispatch(setGlobalLanguage(value));
+  };
+  const onSelectCurrency = (value) => {
+    dispatch(setGlobalCurrency(value));
+  };
   return (
     <div className="menu-sidebar">
       <Menu mode="inline">
@@ -22,18 +22,18 @@ const MenuSidebar = () => {
             </Link>
           </Menu.Item>
           <Menu.Item key="2">
-            <Link href={process.env.PUBLIC_URL + "/homepage2"}>
-              <a>Homepage 2</a>
+            <Link href={process.env.PUBLIC_URL + "/home2"}>
+              <a>Home 2</a>
             </Link>
           </Menu.Item>
           <Menu.Item key="3">
-            <Link href={process.env.PUBLIC_URL + "/homepage3"}>
-              <a>Homepage 3</a>
+            <Link href={process.env.PUBLIC_URL + "/home3"}>
+              <a>Home 3</a>
             </Link>
           </Menu.Item>
           <Menu.Item key="4">
-            <Link href={process.env.PUBLIC_URL + "/homepage4"}>
-              <a>Homepage 4</a>
+            <Link href={process.env.PUBLIC_URL + "/home4"}>
+              <a>Home 4</a>
             </Link>
           </Menu.Item>
         </SubMenu>
@@ -118,5 +118,5 @@ const MenuSidebar = () => {
   );
 }
 
-export default React.memo(MenuSidebar);
+export default MenuSidebar;
 

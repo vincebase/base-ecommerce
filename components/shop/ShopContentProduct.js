@@ -82,7 +82,7 @@ function ShopContentProduct({
                   defaultCurrent={1}
                   current={page}
                   total={currentData.length}
-                  pageSize={15}
+                  pageSize={productPerPage}
                   itemRender={itemRender}
                   onChange={(page, pageSize) => onChangeOffset(page, pageSize)}
                 />
