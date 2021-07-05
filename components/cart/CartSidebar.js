@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux';
+
 import { Empty, Button } from 'antd';
 import Link from 'next/link';
 import React from 'react';

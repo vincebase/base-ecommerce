@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Modal, message, Button } from "antd";
-import { useSelector, useDispatch } from "react-redux";
+
 
 import { formatCurrency } from "../../common/utils";
 import {
   checkAvaiableQuantityToAdd,
   checkProductInCart,
 } from "../../common/shopUtils";
-import { removeFromWishlist } from "../../redux/actions/wishlistActions";
-import { addToCart } from "../../redux/actions/cartActions";
+
+
 
 function WishlistSidebarItem({ data }) {
-  const dispatch = useDispatch();
-  const [visible, setVisible] = useState(false);
-  const globalState = useSelector((state) => state.globalReducer);
+
   const cartState = useSelector((state) => state.cartReducer);
   const { currency, locales } = globalState.currency;
   const avaiableQuantity = checkAvaiableQuantityToAdd(cartState, data);

@@ -6,6 +6,19 @@ import FooterSubcribe from "./elements/FooterSubcribe";
 import Container from "../other/Container";
 import links from "../../data/footer-links.json";
 
+const onLogout = async (e) => {
+  e.preventDefault();
+
+  try {
+    const result = await fetch("/api/logout", {
+      method: "POST",
+    });
+    router.push("/login");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const Footer = ({containerType}) => {
   return (
     <div className="footer">

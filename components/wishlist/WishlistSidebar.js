@@ -1,6 +1,6 @@
 import React from "react";
 import { Empty } from "antd";
-import { useSelector } from "react-redux";
+
 
 import WishlistSidebarItem from "./WishlistSidebarItem";
 

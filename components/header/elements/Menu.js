@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useSelector } from "react";
 import Link from "next/link";
 import { Button, Drawer } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
-import {useSelector, useDispatch} from 'react-redux';
 import productsData from "../../../data/product.json";
 import CartSidebar from "../../cart/CartSidebar";
 import WishlistSidebar from "../../wishlist/WishlistSidebar";
@@ -14,8 +13,8 @@ import { getTotalProductInCart } from "../../../common/shopUtils";
 
 
 const Menu = ({containerType}) => {
-  const cartState = useSelector((state) => state.cartReducer);
-  const wishlistState = useSelector((state) => state.wishlistReducer);
+  // const cartState = useSelector((state) => state.cartReducer);
+  // const wishlistState = useSelector((state) => state.wishlistReducer);
   const [cartSidebarOpen, setCartSidebarOpen] = useState(false);
   const [menuSidebarOpen, setMenuSidebarOpen] = useState(false);
   const [wishlistSidebarOpen, setWishlistSidebarOpen] = useState(false); 
@@ -53,14 +52,20 @@ const Menu = ({containerType}) => {
             />
             <div className="menu-functions">
               <Button>
-                <Link href="#">
-                  <a>Join now</a>
+                <Link href={process.env.PUBLIC_URL +"/login"}>
+                  <a>SignIn</a>
+                </Link>
+              </Button>
+              <Button>
+                <Link href={process.env.PUBLIC_URL +"/register"}>
+                  <a>SignUp</a>
                 </Link>
               </Button>
               <div
                 className="menu-function-item"
                 onClick={() => setWishlistSidebarOpen(true)}
               >
+                
                 <img
                   src={
                     process.env.PUBLIC_URL +
@@ -68,7 +73,7 @@ const Menu = ({containerType}) => {
                   }
                   alt=""
                 />
-                <span>{wishlistState.length}</span>
+                <span>3</span>
               </div>
               <div
                 className="menu-function-item"
@@ -81,7 +86,7 @@ const Menu = ({containerType}) => {
                   }
                   alt=""
                 />
-                <span>{getTotalProductInCart(cartState)}</span>
+                <span>5</span>
               </div>
             </div>
           </div>
@@ -94,7 +99,7 @@ const Menu = ({containerType}) => {
       </div>
       <Drawer
         placement="right"
-        title={`Wishlist (${wishlistState.length})`}
+        title={`Wishlist (${5})`}
         closable={true}
         onClose={() => setWishlistSidebarOpen(false)}
         closeIcon={
@@ -110,7 +115,7 @@ const Menu = ({containerType}) => {
       </Drawer>
       <Drawer
         placement="right"
-        title={`Shopping cart (${getTotalProductInCart(cartState)})`}
+        title={`Shopping cart (${5})`}
         closable={true}
         onClose={() => setCartSidebarOpen(false)}
         closeIcon={

@@ -1,43 +1,33 @@
 import { Select } from 'antd';
 import Link from 'next/link';
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import {
-  setGlobalLanguage,
-  setGlobalCurrency,
-} from '../../../redux/actions/globalActions';
+
+
 import Container from '../../other/Container';
 
 const TopNav = ({ containerType }) => {
   const { Option } = Select;
-  const dispatch = useDispatch();
-  const globalState = useSelector((state) => state.globalReducer);
-  const onSelectLanguage = (value) => {
-    dispatch(setGlobalLanguage(value));
-  };
-  const onSelectCurrency = (value) => {
-    dispatch(setGlobalCurrency(value));
-  };
+
   return (
     <div className="top-nav">
       <Container type={containerType}>
         <div className="top-nav-wrapper">
           <div className="top-nav-selects">
             <Select
-              defaultValue={globalState.language}
+              defaultValue="English"
               style={{ width: 90 }}
               bordered={false}
-              onChange={onSelectLanguage}
+              // onChange={onSelectLanguage}
             >
               <Option value="EN">English</Option>
               <Option value="JP">Japanese</Option>
               <Option value="VN">Vietnamese</Option>
             </Select>
             <Select
-              defaultValue={globalState.currency.currency}
+              defaultValue="USD - Dollar"
               style={{ width: 120 }}
               bordered={false}
-              onChange={onSelectCurrency}
+              // onChange={onSelectCurrency}
             >
               <Option value="USD">USD - Dollar</Option>
               <Option value="JPY">JPY - Yen</Option>

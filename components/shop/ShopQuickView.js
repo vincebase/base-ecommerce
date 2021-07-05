@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Slider from 'react-slick';
 import { Row, Col } from 'antd';
 
-import ProductDetailContentOne from '../productDetail/productDetailContent/ProductDetailContentOne';
+// import ProductDetailContentOne from '../productDetail/productDetailContent/ProductDetailContentOne';
 
 function ShopQuickView({ data, setModalVisible }) {
   const slider1Settings = {

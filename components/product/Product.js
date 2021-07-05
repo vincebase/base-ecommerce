@@ -2,30 +2,30 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 import { Rate, Button, Tooltip, Skeleton, message, Modal, Spin } from 'antd';
-import { useDispatch, useSelector } from 'react-redux';
+
 
 import { formatCurrency } from '../../common/utils';
 import {
   checkProductInWishlist,
   checkAvaiableQuantityToAdd,
 } from '../../common/shopUtils';
-import { addToCart } from "../../redux/actions/cartActions";
-import {
-  addToWishlist,
-  removeFromWishlist,
-} from "../../redux/actions/wishlistActions";
+
+// import {
+//   addToWishlist,
+//   removeFromWishlist,
+// } from "../../redux/actions/wishlistActions";
 import ShopQuickView from '../shop/ShopQuickView';
 
 function Product({ data, productStyle }) {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [visible, setVisible] = useState(false);
   const [imageLoading, setImageLoading] = useState(true);
-  const globalState = useSelector((state) => state.globalReducer);
-  const cartState = useSelector((state) => state.cartReducer);
+  // const globalState = useSelector((state) => state.globalReducer);
+  // const cartState = useSelector((state) => state.cartReducer);
   const wishlistState = useSelector((state) => state.wishlistReducer);
   const productInWishlist = checkProductInWishlist(wishlistState, data.id);
   const avaiableQuantity = checkAvaiableQuantityToAdd(cartState, data);
-  const { currency, locales } = globalState.currency;
+  // const { currency, locales } = globalState.currency;
   useEffect(() => {
     setImageLoading(true);
   }, [globalState.category]);
